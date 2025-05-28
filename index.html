@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière | Bespoke Jewelry Design</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #996515;
+            --light-gold: #F5E6B3;
+            --dark-bg: #121212;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .text-gold {
+            color: var(--primary-gold) !important;
+        }
+
+        .bg-gold {
+            background-color: var(--primary-gold) !important;
+        }
+
+        .btn-gold {
+            background-color: var(--primary-gold);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--dark-gold);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline-gold {
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            background: transparent;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--primary-gold);
+            color: white;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 20px 0;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-gold);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .counter-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .counter-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .process-step {
+            position: relative;
+            padding: 30px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item img {
+            transition: all 0.5s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 60px;
+            color: var(--light-gold);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control {
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        textarea.form-control {
+            height: auto;
+            min-height: 150px;
+        }
+
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-links h5 {
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-ring {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .floating-ring:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            animation-delay: 1s;
+            top: 30%;
+            left: 10%;
+        }
+
+        .floating-ring:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            animation-delay: 2s;
+            top: 70%;
+            left: 80%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        .diamond-shape {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-gold);
+            transform: rotate(45deg);
+            position: absolute;
+            opacity: 0.1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(45deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(45deg) scale(1.1);
+            }
+
+            100% {
+                transform: rotate(45deg) scale(1);
+            }
+        }
+
+        /* Custom animations */
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .gold-texture-bg {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.01) 100%), url('https://www.transparenttextures.com/patterns/diagmonds.png');
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .jewelry-showcase {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 400px;
+        }
+
+        .jewelry-showcase img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .jewelry-showcase:hover img {
+            transform: scale(1.05);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 30px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .jewelry-showcase:hover .showcase-overlay {
+            transform: translateY(0);
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            margin: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 80%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .counter-item:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .counter-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary-gold);
+        }
+
+        .counter-text {
+            font-size: 1rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar {
+                background-color: var(--dark-bg);
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .section-title::after {
+                width: 30%;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Floating decorative elements -->
+    <div class="floating-ring d-none d-lg-block" style="top: 20%; left: 5%;"></div>
+    <div class="floating-ring d-none d-lg-block" style="top: 60%; left: 85%;"></div>
+    <div class="diamond-shape d-none d-lg-block" style="top: 30%; right: 5%;"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-gold" href="#">Lumière</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#contact"
+                    class="btn btn-gold ms-lg-3 mt-3 mt-lg-0 animate__animated animate__fadeIn animate-delay-2">Book
+                    Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content">
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Crafting Timeless <span
+                            class="text-gold">Heirlooms</span></h1>
+                    <p class="lead mb-5 animate__animated animate__fadeIn animate-delay-1">Each piece tells a story. Let
+                        us create a bespoke jewelry masterpiece that captures your unique journey and becomes a
+                        cherished legacy.</p>
+                    <div class="d-flex flex-wrap hero-buttons animate__animated animate__fadeIn animate-delay-2">
+                        <a href="#contact" class="btn btn-gold btn-lg me-3 mb-3">Begin Your Design</a>
+                        <a href="#process" class="btn btn-outline-light btn-lg mb-3">Explore Our Process</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block animate__animated animate__fadeIn animate-delay-3">
+                    <div class="jewelry-showcase position-relative">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                            alt="Bespoke Jewelry" class="img-fluid">
+                        <div class="showcase-overlay">
+                            <h3 class="text-gold">The Celeste Collection</h3>
+                            <p>Custom engagement ring featuring ethically sourced diamonds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Counter -->
+        <div class="row mt-5 animate__animated animate__fadeIn animate-delay-3">
+            <div class="col-12">
+                <div class="row text-center">
+                <div class="col-12 mb-4">
+                    <div class="counter-item">
+                        <h3 class="counter-number" data-count="1000">0</h3>
+                        <p class="mb-0">Pieces Created</p>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <div class="counter-item">
+                        <h3 class="counter-number" data-count="500">0</h3>
+                        <p class="mb-0">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <div class="counter-item">
+                        <h3 class="counter-number" data-count="15">0</h3>
+                        <p class="mb-0">Years Experience</p>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <div class="counter-item">
+                        <h3 class="counter-number" data-count="200">0</h3>
+                        <p class="mb-0">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 gold-texture-bg" id="about">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/9xwazD5SyVg?autoplay=0&showinfo=0&controls=0"
+                            frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-gold animate__animated animate__fadeIn">About Our Craft</h2>
+                    <p class="lead animate__animated animate__fadeIn animate-delay-1">At Lumière, we believe jewelry
+                        should be as unique as the person wearing it. Founded by master jeweller Alexandre Durand, our
+                        atelier combines centuries-old techniques with modern innovation to create pieces that transcend
+                        time.</p>
+                    <p class="animate__animated animate__fadeIn animate-delay-2">Each creation begins with a
+                        conversation - understanding your vision, your story, and the emotions you wish to embody. From
+                        initial sketch to final polish, every step is executed with meticulous attention to detail and
+                        an unwavering commitment to excellence.</p>
+                    <div class="mt-4 animate__animated animate__fadeIn animate-delay-3">
+                        <a href="#process" class="btn btn-outline-gold me-2">Our Process</a>
+                        <a href="#gallery" class="btn btn-gold">View Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light" id="process">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-gold animate__animated animate__fadeIn">Our Bespoke Process</h2>
+                <p class="lead animate__animated animate__fadeIn animate-delay-1">From concept to creation, follow the
+                    journey of your custom piece</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate__animated animate__fadeInUp">
+                        <div class="step-number">1</div>
+                        <h4 class="text-gold">Initial Consultation</h4>
+                        <p>We begin with an in-depth conversation to understand your vision, preferences, and the story
+                            behind your piece.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate__animated animate__fadeInUp animate-delay-1">
+                        <div class="step-number">2</div>
+                        <h4 class="text-gold">Design Development</h4>
+                        <p>Our designers create sketches and 3D renderings, refining the concept until it perfectly
+                            matches your vision.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate__animated animate__fadeInUp animate-delay-2">
+                        <div class="step-number">3</div>
+                        <h4 class="text-gold">Material Selection</h4>
+                        <p>Choose from our curated selection of ethically sourced gemstones and precious metals that
+                            meet our exacting standards.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate__animated animate__fadeInUp animate-delay-3">
+                        <div class="step-number">4</div>
+                        <h4 class="text-gold">Handcrafting</h4>
+                        <p>Master artisans bring your design to life using traditional techniques combined with
+                            precision technology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 animate__animated animate__fadeIn animate-delay-4">
+                <a href="#contact" class="btn btn-gold btn-lg">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5" id="gallery">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-gold animate__animated animate__fadeIn">Our Creations</h2>
+                <p class="lead animate__animated animate__fadeIn animate-delay-1">Each piece tells a unique story</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                            alt="Custom Engagement Ring">
+                        <div class="gallery-overlay">
+                            <h4>Eternal Promise</h4>
+                            <p>Platinum engagement ring with oval-cut diamond</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn animate-delay-1">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            alt="Diamond Necklace">
+                        <div class="gallery-overlay">
+                            <h4>Celestial Cascade</h4>
+                            <p>18k gold necklace with pear-shaped diamonds</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn animate-delay-2">
+                        <img src="https://emeraldsmaravellous.com/cdn/shop/files/IMG_7326.jpg?v=1743711036"
+                            alt="Emerald Earrings">
+                        <div class="gallery-overlay">
+                            <h4>Verdant Whisper</h4>
+                            <p>Colombian emerald drop earrings in white gold</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn">
+                        <img src="https://i.ebayimg.com/images/g/hiwAAOSwNSxVJyxV/s-l1200.jpg"
+                            alt="Sapphire Bracelet">
+                        <div class="gallery-overlay">
+                            <h4>Azure Embrace</h4>
+                            <p>Ceylon sapphire tennis bracelet in rose gold</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn animate-delay-1">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            alt="Pearl Ring">
+                        <div class="gallery-overlay">
+                            <h4>Lunar Solitaire</h4>
+                            <p>South Sea pearl set in yellow gold with diamond halo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item animate__animated animate__fadeIn animate-delay-2">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                            alt="Ruby Pendant">
+                        <div class="gallery-overlay">
+                            <h4>Passion's Flame</h4>
+                            <p>Burmese ruby pendant with diamond accents</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 animate__animated animate__fadeIn animate-delay-3">
+                <a href="#contact" class="btn btn-gold btn-lg">Commission Your Piece</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-dark text-white" id="testimonials">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-gold animate__animated animate__fadeIn">Client Stories</h2>
+                <p class="lead animate__animated animate__fadeIn animate-delay-1">Hear from those who've entrusted us
+                    with their most meaningful moments</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate__animated animate__fadeInUp">
+                        <p class="text-dark">"Working with Alexandre to create my engagement ring was an unforgettable
+                            experience. He took our love story and transformed it into a breathtaking ring that
+                            perfectly represents our journey together."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                            <div>
+                                <h5 class="mb-0 text-gold">Sarah J.</h5>
+                                <small>Engagement Ring Client</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate__animated animate__fadeInUp animate-delay-1">
+                        <p class="text-dark">"The heirloom necklace Lumière created for my daughter's 21st birthday
+                            incorporated stones from my grandmother's brooch. The craftsmanship is exquisite and the
+                            sentimental value is priceless."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Elizabeth T.">
+                            <div>
+                                <h5 class="mb-0 text-gold">Elizabeth T.</h5>
+                                <small>Heirloom Client</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate__animated animate__fadeInUp animate-delay-2">
+                        <p class="text-dark">"As a collector of fine jewelry, I'm particular about craftsmanship.
+                            Lumière's attention to detail and innovative designs have made them my exclusive jeweler for
+                            the past five years."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael R.">
+                            <div>
+                                <h5 class="mb-0 text-gold">Michael R.</h5>
+                                <small>Collector</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 gold-texture-bg" id="contact">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title text-gold animate__animated animate__fadeIn">Begin Your Journey</h2>
+                    <p class="lead animate__animated animate__fadeIn animate-delay-1">Ready to create your bespoke
+                        masterpiece? Schedule a consultation or inquire about our services.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form animate__animated animate__fadeIn">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                            <textarea class="form-control" placeholder="Tell us about your vision..."
+                                required></textarea>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-gold btn-lg">Submit Inquiry</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4 text-center animate__animated animate__fadeIn">
+                    <div class="p-4">
+                        <i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i>
+                        <h4 class="text-gold">Our Atelier</h4>
+                        <p>24 Rue de la Paix<br>75002 Paris, France</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center animate__animated animate__fadeIn animate-delay-1">
+                    <div class="p-4">
+                        <i class="fas fa-phone-alt fa-2x text-gold mb-3"></i>
+                        <h4 class="text-gold">Contact</h4>
+                        <p>+33 1 42 60 58 16<br>contact@lumiere-jewels.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center animate__animated animate__fadeIn animate-delay-2">
+                    <div class="p-4">
+                        <i class="fas fa-clock fa-2x text-gold mb-3"></i>
+                        <h4 class="text-gold">Hours</h4>
+                        <p>Monday - Friday: 10am - 6pm<br>Saturday: By appointment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="text-gold mb-4">Lumière</h3>
+                    <p>Creating bespoke jewelry that tells your unique story through exceptional craftsmanship and
+                        timeless design.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h5 class="footer-links text-gold">Quick Links</h5>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#process">Process</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h5 class="footer-links text-gold">Services</h5>
+                    <a href="#">Engagement Rings</a>
+                    <a href="#">Wedding Bands</a>
+                    <a href="#">Custom Pieces</a>
+                    <a href="#">Jewelry Restoration</a>
+                    <a href="#">Gemstone Sourcing</a>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-links text-gold">Newsletter</h5>
+                    <p>Subscribe to receive updates on our latest creations and exclusive events.</p>
+                    <form class="mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-gold btn-sm" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Lumière Jewelry. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        $('a[href*="#"]').on('click', function (e) {
+            e.preventDefault();
+
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 70,
+                },
+                500,
+                'linear'
+            );
+        });
+
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            $('.counter-number').each(function () {
+                var $this = $(this);
+                var countTo = $this.attr('data-count');
+
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function () {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+        }
+
+        // Initialize counters when scrolled to
+        function checkCounters() {
+            var counterSection = $('.counter-number').first().closest('.row');
+            var counterPos = counterSection.offset().top;
+            var scrollPos = $(window).scrollTop() + $(window).height();
+
+            if (scrollPos > counterPos + 100 && !counterSection.hasClass('counted')) {
+                counterSection.addClass('counted');
+                animateCounters();
+            }
+        }
+
+        // Run on page load and scroll
+        $(document).ready(function () {
+            checkCounters();
+            $(window).scroll(function () {
+                checkCounters();
+            });
+        });
+
+        // Animation on scroll
+        $(document).ready(function () {
+            $('.animate__animated').each(function () {
+                var elementPos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                var windowHeight = $(window).height();
+
+                if (elementPos < topOfWindow + windowHeight - 100) {
+                    $(this).addClass($(this).data('animate'));
+                }
+            });
+
+            $(window).scroll(function () {
+                $('.animate__animated').each(function () {
+                    var elementPos = $(this).offset().top;
+                    var topOfWindow = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (elementPos < topOfWindow + windowHeight - 100) {
+                        $(this).addClass($(this).data('animate'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
